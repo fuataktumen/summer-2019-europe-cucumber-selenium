@@ -1,5 +1,5 @@
 @All
-Feature: Sales managers should be navigate pages
+Feature: Navigation Menu
 
 @Fleet
   Scenario: Navigate the top menu
