@@ -58,5 +58,31 @@ public class LoginStepDefs {
     public void user_logs_in_using_and(String username, String password) {
         LoginPage loginpage= new LoginPage();
         loginpage.login(username,password);
+
+
+
+    }
+
+    @Given("the user is logged in as a {string}")
+    public void theUserIsLoggedInAsA(String user) {
+
+        String url = ConfigurationReader.get("url");
+        Driver.get().get(url);
+        String username = null;
+        String password = null;
+
+        if(user.equals("driver")){
+            username = ConfigurationReader.get("driver_username");
+            password = ConfigurationReader.get("driver_password");
+        }else if(user.equals("sales manager")){
+            username = ConfigurationReader.get("sales_manager_username");
+            password = ConfigurationReader.get("sales_manager_password");
+        }else if(user.equals("store manager")){
+            username = ConfigurationReader.get("store_manager_username");
+            password = ConfigurationReader.get("store_manager_password");
+        }
+
+        LoginPage loginPage = new LoginPage();
+        loginPage.login(username,password);
     }
 }
